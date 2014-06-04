@@ -18,7 +18,13 @@ function load(app, fn){
   var shows = traceur.require(__dirname + '/../routes/shows.js');
 
   app.get('/', dbg, home.index);
-  app.get('/show/past/:id', dbg, shows.past);
+  //app.get('/show/past/:id', dbg, shows.past); if you uncomment this, the whole damned thing breaks. So whoever's it is may need to re-evaluate its existance.
+  app.get('/shows/populateDB', dbg, shows.populateDB);
+
+
+
   console.log('Routes Loaded');
+
+
   fn();
 }

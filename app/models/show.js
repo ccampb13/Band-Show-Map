@@ -34,9 +34,9 @@ class Show{
 			var futureShows = _.filter(shows, show=>{
 				var showDate = new Date(show.date);
 				return showDate >= today;
-				});//end pastShows
+			});//end pastShows
 				func(futureShows);
-			});//end find
+		});//end find
 	}// end static findFuture
 
 	static findByDate(date, func){
@@ -46,7 +46,7 @@ class Show{
 		});
 	}
 
-	 save(func){
+	save(func){
     shows.save(this, (err, count)=>{
       func();
     });
