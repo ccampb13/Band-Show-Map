@@ -13,9 +13,12 @@
   function init(){
     initMap(36, -85, 6);
     demoMarker();
+<<<<<<< HEAD
     getFutureShows();
     getPastShows();
     $('#pastShows').on('click', '.pastShow', showImages);
+=======
+>>>>>>> ad6e0db376d623c7b09a458336cfb8ea323d1f4e
 
   }
 
@@ -29,7 +32,11 @@
 
   function addMarker(lat, lng, name, icon){
     let latLng = new google.maps.LatLng(lat, lng);
+<<<<<<< HEAD
     new google.maps.Marker({map: map, position: latLng, title: name, icon: '/img/map-marker.svg'});
+=======
+    new google.maps.Marker({map: map, position: latLng, title: name, icon: icon});
+>>>>>>> ad6e0db376d623c7b09a458336cfb8ea323d1f4e
   }
 
   function demoMarker(){
