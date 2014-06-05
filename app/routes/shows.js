@@ -22,6 +22,7 @@ exports.future = (req, res)=>{
 
 exports.images = (req, res)=>{
   Show.findById(req.params.id, show=>{
+  	console.log(show);
     res.render('shows/images', {show:show, title:'Show Images'});
   });
 };

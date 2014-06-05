@@ -75,7 +75,7 @@
 
   function showImages(){
     //alert('THIS WORKS!');
-    var showId = $('.pastShow').attr('data-id');
+    var showId = $(this).attr('data-id');
     $.ajax({
       url: `/shows/past/${showId}`,
       type: 'GET',
@@ -84,7 +84,7 @@
       success: pastShowsImages=>{
         console.log('THESE ARE THE IMAGES');
         console.log(pastShowsImages);
-        $('#pastShowsImages').append(pastShowsImages);
+        $('#pastShowImages').append(pastShowsImages);
       }
     });
   }
