@@ -1,4 +1,4 @@
 each show in shows
   .pastShow(data-id=show._id.toString())
-    h3= show.venue
-    h4= show.date
+    h2.past= show.venue
+    h5= moment(show.date).format("LL")

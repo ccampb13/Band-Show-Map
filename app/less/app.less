@@ -18,6 +18,15 @@ html, body {
   color: white;
 }
 
+h1 {
+  text-decoration: underline;
+  margin-bottom: 50px;
+}
+
+h2.past:hover {
+  color: orange;
+}
+
 #headerOutline {
   width: 100%;
   height: 40%;
@@ -123,10 +132,12 @@ html, body {
 
 #showTextBox {
   float: left;
+  text-align: left;
 }
 
 #pastShowTextBox{
   float:right;
+  text-align: right;
 }
 
 #showText, #pastShowText {
@@ -146,24 +157,27 @@ html, body {
 
 
 #pastShowImages {
-  width: 900px;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   position: relative;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 2%;
   box-shadow: 0em 0em 1em;
   border-radius: 15px;
   border: 1px black;
   background-color: white;
+  text-align:center;
 }
 
 .picture {
   width: 200px;
   height: 200px;
   background-size: contain;
+  background-repeat: no-repeat;
   display: inline-block;
+  border: 3px solid black;
   position: relative;
 }
 
