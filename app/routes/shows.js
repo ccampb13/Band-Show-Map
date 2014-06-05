@@ -8,7 +8,7 @@ var shows = global.nss.db.collection('shows');
 
 exports.past = (req, res)=>{
   Show.findPast(shows=>{
-    res.render('shows/past', {shows:shows, title: 'Future Shows'});
+    res.render('shows/past', {shows:shows, title: 'Past Shows'});
   });
 };
 
@@ -19,6 +19,13 @@ exports.future = (req, res)=>{
     });
   });
 };
+
+exports.images = (req, res)=>{
+  Show.findById(req.params.id, show=>{
+    res.render('shows/images', {show:show, title:'Show Images'});
+  });
+};
+
 
 
 //to populate your DB with the shows, just enter http://localhost:3000/shows/populateDB/
@@ -36,7 +43,7 @@ exports.populateDB = (req, res)=>{
 	});
 };
 
-//to get pictures enter http://localhost:3000/shows/loadPictures and wait for a really long time. 
+//to get pictures enter http://localhost:3000/shows/loadPictures and wait for a really long time. FUCK!
 exports.getPictures = (req, res)=>{
 	var request = require('request');
 	request('https://api.instagram.com/v1/tags/snow/media/recent?access_token=10528748.f59def8.8807aab6f2314e86a2a3f38aef27f4a8', function (error, response, body) {
@@ -68,5 +75,3 @@ exports.getPictures = (req, res)=>{
   	}
 	});
 };
-
-

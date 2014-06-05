@@ -45,7 +45,7 @@
         data: null,
         dataType: 'json',
         success: futureShows=>{
-          console.log(futureShows);
+          //leave this in....because comments are cool...
           //i don't know if you can for each like this, but we will try it
           //its right here. you were right, it is because we need to run it on a different layer of the object
           futureShows.shows.forEach(s=>{
@@ -66,8 +66,6 @@
         data: null,
         dataType: 'html',
         success: pastShows=>{
-          console.log('THESE ARE THE PAST SHOWS');
-          console.log(pastShows);
           $('#pastShows').append(pastShows);
         }
       });
@@ -76,7 +74,19 @@
 //===============================================Past Show Images
 
   function showImages(){
-
+    //alert('THIS WORKS!');
+    var showId = $('.pastShow').attr('data-id');
+    $.ajax({
+      url: `/shows/past/${showId}`,
+      type: 'GET',
+      data: null,
+      dataType: 'html',
+      success: pastShowsImages=>{
+        console.log('THESE ARE THE IMAGES');
+        console.log(pastShowsImages);
+        $('#pastShowsImages').append(pastShowsImages);
+      }
+    });
   }
 
 

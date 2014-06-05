@@ -1,6 +1,6 @@
 var shows = global.nss.db.collection('shows');
 var _ = require('lodash');
-//var Mongo = require('mongodb');
+var Mongo = require('mongodb');
 //var moment = require('moment');
 
 class Show{
@@ -44,6 +44,13 @@ class Show{
 		shows.findOne({date:date}, (err, result)=>{
 			result = _.create(Show.prototype, result);
 			func(result);
+		});
+	}
+
+	static findById(id, func){
+		id = Mongo.ObjectID(id);
+		shows.findOne({_id: id}, (err, show)=>{
+			func(show);
 		});
 	}
 
