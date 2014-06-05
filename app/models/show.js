@@ -1,5 +1,6 @@
 var shows = global.nss.db.collection('shows');
 var _ = require('lodash');
+//var Mongo = require('mongodb');
 //var moment = require('moment');
 
 class Show{
@@ -55,16 +56,8 @@ class Show{
 
 	// ***** this stuff to be used by chron ************
 
-	addPhotos(obj, func){
-		obj.each(imgObj=>{
-			var date = new Date(imgObj.date*1000);
-			Show.findByDate(date, show=>{
-				imgObj.images.each(photo=>{
-					show.pictures.push(photo.url);
-					show.save(()=>{});
-				});
-			});
-		});
+	addPhoto(pic){
+		this.pictures.push(pic);
 	}// end addPhotos
 
 
