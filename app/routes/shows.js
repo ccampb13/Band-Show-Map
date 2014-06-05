@@ -1,10 +1,21 @@
 'use strict';
+
 var traceur = require('traceur');
 var Show = traceur.require(__dirname + '/../models/show.js');
 var _ = require('lodash');
 
-exports.index = (req, res)=>{
-  res.render('shows/past', {title: 'Node.js: Home'});
+exports.past = (req, res)=>{
+  Show.findPast(shows=>{
+    res.render('shows/past', {shows:shows, title: 'Future Shows'});
+  });
+};
+
+exports.future = (req, res)=>{
+  Show.findFuture(shows=>{
+    res.render('shows/future', {shows:shows, title: 'Future Shows'}, (err, html)=>{
+      res.send({html:html, shows:shows});
+    });
+  });
 };
 
 

@@ -19,6 +19,8 @@ function load(app, fn){
 
   app.get('/', dbg, home.index);
   //app.get('/show/past/:id', dbg, shows.past); if you uncomment this, the whole damned thing breaks. So whoever's it is may need to re-evaluate its existance.
+  app.get('/shows/future', dbg, shows.future);
+  app.get('/shows/past', dbg, shows.past);
   app.get('/shows/populateDB', dbg, shows.populateDB);
 
 

@@ -21,9 +21,9 @@ block content
         h2 Upcoming Shows
 
         #futureShows
-          each show in futureShows
-            h3= show.venueName
-            h4= show.date
+          //- each show in futureShows
+          //-   h3= show.venueName
+          //-   h4= show.date
 
     #map
 
@@ -32,11 +32,8 @@ block content
         h2 Past Shows
 
         #pastShows
-          each show in pastShows
-            .pastShow(data-id=show._id.toString())
-              h3
-                a(href='#')= show.venueName
-              h4= show.date
+          //-  each show in pastShows
+
 
 
     #pastShowImages

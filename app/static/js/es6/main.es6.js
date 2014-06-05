@@ -11,7 +11,7 @@
   var charts = {};
 
   function init(){
-    initMap(36, -85, 6);
+    initMap(36, -85, 4);
     demoMarker();
     getFutureShows();
     getPastShows();
@@ -40,36 +40,35 @@
 
   function getFutureShows(){
       $.ajax({
-        url: '/',
+        url: '/shows/future',
         type: 'GET',
         data: null,
         dataType: 'json',
         success: futureShows=>{
           console.log(futureShows);
-          futureShows.futureShows.forEach(s=>{
+          //i don't know if you can for each like this, but we will try it
+          //its right here. you were right, it is because we need to run it on a different layer of the object
+          futureShows.shows.forEach(s=>{
             var lat = s.latitude;
             var lon = s.longitude;
-            var name = s.venueName;
-            addMarker(lat, lon, name.toString());
+            var name = s.venue;
+            addMarker(lat, lon, name);
           });
+          $('#futureShows').append(futureShows.html);
         }
       });
     }
 
   function getPastShows(){
       $.ajax({
-        url: '/',
+        url: '/shows/past',
         type: 'GET',
         data: null,
-        dataType: 'json',
+        dataType: 'html',
         success: pastShows=>{
+          console.log('THESE ARE THE PAST SHOWS');
           console.log(pastShows);
-          pastShows.pastShows.forEach(s=>{
-            var lat = s.latitude;
-            var lon = s.longitude;
-            var name = s.venueName;
-            addMarker(lat, lon, name.toString());
-          });
+          $('#pastShows').append(pastShows);
         }
       });
     }
