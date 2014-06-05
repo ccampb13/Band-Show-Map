@@ -22,6 +22,7 @@ function load(app, fn){
   app.get('/shows/future', dbg, shows.future);
   app.get('/shows/past', dbg, shows.past);
   app.get('/shows/populateDB', dbg, shows.populateDB);
+  app.get('/shows/loadPictures', dbg, shows.getPictures);
 
 
 
